@@ -23,8 +23,8 @@ function showDeck(){
 		
 	xmlhttp.open("GET", "getdeck.php?q="+decks,true);
 	xmlhttp.send();		
-	
 	}
+	
 }
 
 function showHands(){
@@ -63,7 +63,7 @@ function addHand(){
 		
 		xmlhttp.onreadystatechange = function(){
 			if(this.readyState == 4 && this.status == 200){
-				document.getElementById("addHands").innerHTML = this.responseText;
+				document.getElementById("addHands").innerHTML = document.getElementById("addHands").innerHTML + this.responseText;
 			}
 		};
 	xmlhttp.open("GET", "add.php?q="+list,true);

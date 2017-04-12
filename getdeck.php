@@ -1,3 +1,4 @@
+<?php session_start();?>
 <link type = "text/css" rel = "stylesheet" href = "css/style.css"></link>
 <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script type = "text/javascript" src = "js/test.js"></script>
@@ -21,7 +22,8 @@ if($creature_count >0){
 	or die($magic."<br/><br/>".mysqli_error());
 
 	while($row = mysqli_fetch_array($cards)){
-		echo  "<a href=''>" . $row['qty'] . "x " . $row['card_name']. "<span id = 'hovImg'>" ."<img style = 'vertical-align: bottom' src = '{$row['card_image']}' id = 'image'/>" . "</span>". "</a>" . "<br/>";
+		echo  "<a href=''>" . $row['qty'] . "x " . $row['card_name']. "<span id = 'hovImg'>"
+		."<img src = '{$row['card_image']}' id = 'image'/>" . "</span>". "</a>" . "<br/>";
 		}	
 }
 
@@ -34,7 +36,8 @@ if($planeswalker_count > 0){
 	or die($magic . "<br/><br/>" . mysqli_error());
 
 	while($row = mysqli_fetch_array($cards)){
-		echo  "<a href=''>" . $row['qty'] . "x " . $row['card_name']. "<span id = 'hovImg'>" ."<img src = '{$row['card_image']}' id = 'image'/>" . "</span>". "</a>" . "<br/>";
+		echo  "<a href=''>" . $row['qty'] . "x " . $row['card_name']. "<span id = 'hovImg'>"
+		."<img src = '{$row['card_image']}' id = 'image'/>" . "</span>". "</a>" . "<br/>";
 	}	
 }
 
@@ -48,7 +51,8 @@ if($spell_count >0){
 	or die($magic . "<br/><br/>" . mysqli_error());
 
 	while($row = mysqli_fetch_array($cards)){
-		echo  "<a href=''>" . $row['qty'] . "x " . $row['card_name']. "<span id = 'hovImg'>" ."<img src = '{$row['card_image']}' id = 'image'/>" . "</span>". "</a>" . "<br/>";
+		echo  "<a href=''>" . $row['qty'] . "x " . $row['card_name']. "<span id = 'hovImg'>" 
+		."<img src = '{$row['card_image']}' id = 'image'/>" . "</span>". "</a>" . "<br/>";
 	}	
 }
 //Lands
@@ -59,7 +63,8 @@ $cards = mysqli_query($magic, $land_filter)
 or die($magic . "<br/><br/>" . mysqli_error());
 
 while($row = mysqli_fetch_array($cards)){
-	echo  "<a href=''>" . $row['qty'] . "x " . $row['card_name']. "<span id = 'hovImg'>" ."<img src = '{$row['card_image']}' id = 'image'/>" . "</span>". "</a>" . "<br/>";
+	echo  "<a href=''>" . $row['qty'] . "x " . $row['card_name']. "<span id = 'hovImg'>" 
+		."<img src = '{$row['card_image']}' id = 'image'/>" . "</span>". "</a>" . "<br/>";
 }	
 mysqli_close($magic);
 ?>
@@ -69,6 +74,15 @@ mysqli_close($magic);
 
 echo "<button type = 'button' id = 'drawCards' value = '{$q}' onclick = 'showHands()'>". "New Hand". "</button>";
 echo "<button type = 'button' id = 'addCard' value = '' onclick = 'addHand()'>". "Draw Card". "</button>";
-echo "<div id = 'cardHands'>"."</div>";
-echo "<div id = 'addHands'>"."</div>";
 ?>
+<div id = 'cardHands'>
+<?php 
+for($i=1; $i<=7; $i++){
+	$card = array_pop($shuffledDeck);
+	echo "<div class = 'cards'>". "<img src = '{$card}'/>". "</div>";
+}
+$_SESSION['deck'] = $shuffledDeck;
+?>
+</div>
+<div id = 'addHands'></div>
+

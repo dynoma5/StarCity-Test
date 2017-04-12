@@ -11,15 +11,17 @@ a:hover {
 	text-decoration: underline;
 }
 
-a span {display: none;
-
+a span {
+	display: none;
 } 
 
 a:hover #hovImg {
 	position: absolute;
-	margin-left: 50px;
-	display: inline;
-	z-index:1;
+	
+	margin-left: 150px;
+	display: block;
+	margin-top:-180px;
+	z-index:3;
 }
 
 
@@ -30,7 +32,7 @@ a:hover #hovImg {
 }
 #deckList{
 	overflow:visible;
-	min-height: 700px;
+	min-height: 520px;
 	position:relative;
 	
 }
@@ -39,6 +41,7 @@ a:hover #hovImg {
 	border-width: 2px;
 	width: 17%;
 	margin-top: 22px;
+	min-height:520px;
 	padding-left: 10px;
 	padding-bottom: 10px;
 	display: block;
@@ -86,9 +89,10 @@ a:hover #hovImg {
 	padding: 10px;
 	left:10px;
 	top: 0px;
-	width: 69%;
-	height: 30%;
-	overflow:hidden;
+	width: 70%;
+	min-width: 179px;
+	min-height: 250px;
+	overflow:auto;
 	font-size:0;
 }
 .cards {
@@ -97,12 +101,12 @@ a:hover #hovImg {
 	font-size:0;
 	border: none;
 	vertical-align:top;
-	width: 14.25%;
-	height: 100%;
+	width: 179px;
+	height: 250px;
 }
 .cards img{
-	max-width: 100%;
-	max-height: 100%;
+	max-width: 179px;
+	max-height: 250px;
 }
 
 #addHands{
@@ -114,8 +118,9 @@ a:hover #hovImg {
 	padding: 10px;
 	left:10px;
 	top: 10px;
-	width: 69%;
-	height: 30%;
-	overflow: hidden;
+	width: 70%;
+	min-width:179px;
+	min-height: 250px;
+	overflow: auto;
 	font-size:0;
 }
