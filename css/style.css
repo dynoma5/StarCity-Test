@@ -1,0 +1,121 @@
+@CHARSET "ISO-8859-1";
+
+a:link {
+	color: black;
+	text-decoration: none;
+}
+a:visited {
+	color: black;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+a span {display: none;
+
+} 
+
+a:hover #hovImg {
+	position: absolute;
+	margin-left: 50px;
+	display: inline;
+	z-index:1;
+}
+
+
+#title {
+	font-weight: bold;
+	font-size: 125%;
+	
+}
+#deckList{
+	overflow:visible;
+	min-height: 700px;
+	position:relative;
+	
+}
+#cardList{
+	border-style: solid;
+	border-width: 2px;
+	width: 17%;
+	margin-top: 22px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	display: block;
+	float:left;
+	overflow:auto;
+	
+}
+
+.title {
+	font-weight: bold;
+	background-color: a9a9a9;
+	margin-right: 65px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	
+}
+#format{
+	margin-top: 5px;
+
+}
+
+
+#drawCards{
+	position:relative;
+	left: 10px;
+	z-index:1;
+	margin-top:0;
+	top:-20px;
+}
+
+#addCard{
+	position:relative;
+	left: 15px;
+	top: -20px;
+	z-index:1;
+	margin-top:0;
+}
+
+#cardHands{
+	position:relative;
+	display: block;
+	border-style: solid;
+	border-bottom: solid 2px;
+	border-width: 2px;
+	padding: 10px;
+	left:10px;
+	top: 0px;
+	width: 69%;
+	height: 30%;
+	overflow:hidden;
+	font-size:0;
+}
+.cards {
+
+	display: inline-block;
+	font-size:0;
+	border: none;
+	vertical-align:top;
+	width: 14.25%;
+	height: 100%;
+}
+.cards img{
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#addHands{
+	position:relative;
+	display: block;
+	border-style: solid;
+	border-bottom: solid 2px;
+	border-width: 2px;
+	padding: 10px;
+	left:10px;
+	top: 10px;
+	width: 69%;
+	height: 30%;
+	overflow: hidden;
+	font-size:0;
+}
