@@ -1,7 +1,8 @@
+
 function showDeck(){
 	var decks = document.getElementById('decks').value;
 	
-	if (decks ==""){
+	if (decks =="0"){
 		document.getElementById("deckList").innerHTML = "";
 		return;
 	}
@@ -17,7 +18,6 @@ function showDeck(){
 		xmlhttp.onreadystatechange = function(){
 			if(this.readyState == 4 && this.status == 200){
 				document.getElementById("deckList").innerHTML = this.responseText;
-			
 			}
 		};
 		

@@ -24,7 +24,14 @@ mysqli_close($magic);
 ?>
 
 </select>
-
-
-<div id = "deckList"></div>
+<div id = "deckList">
+<fieldset id = "cardList"><legend>Deck List</legend>
+<div id = 'title'> Deck Name: </div>
+<div id = 'format'> Format: </div>
+</fieldset>
+<button type = 'button' id = 'drawCards' style = "visibility:hidden">New Hand</button>
+<button type = 'button' id = 'addCard' style = "visibility:hidden">Draw Card</button>
+<fieldset><legend>Sample Hand</legend><div id = 'cardHands'></div></fieldset>
+<fieldset><legend>Drawn Cards</legend><div id = 'addHands'></div></fieldset>
+</div>
 </body>

@@ -1,6 +1,7 @@
 @CHARSET "ISO-8859-1";
 
 a:link {
+	display:block;
 	color: black;
 	text-decoration: none;
 }
@@ -8,22 +9,19 @@ a:visited {
 	color: black;
 }
 a:hover {
-	text-decoration: underline;
+	background-color: #cce3fa;
 }
 
 a span {
-	display: none;
+	display:none;
 } 
 
 a:hover #hovImg {
-	position: absolute;
-	
-	margin-left: 150px;
-	display: block;
-	margin-top:-180px;
+	position:absolute;
+	display: inline-block;
+	margin-left: 17%;
 	z-index:3;
 }
-
 
 #title {
 	font-weight: bold;
@@ -37,11 +35,11 @@ a:hover #hovImg {
 	
 }
 #cardList{
-	border-style: solid;
-	border-width: 2px;
+
 	width: 17%;
-	margin-top: 22px;
+	margin-top: 21.5px;
 	min-height:520px;
+	min-width:200px;
 	padding-left: 10px;
 	padding-bottom: 10px;
 	display: block;
@@ -66,7 +64,6 @@ a:hover #hovImg {
 
 #drawCards{
 	position:relative;
-	left: 10px;
 	z-index:1;
 	margin-top:0;
 	top:-20px;
@@ -83,44 +80,36 @@ a:hover #hovImg {
 #cardHands{
 	position:relative;
 	display: block;
-	border-style: solid;
-	border-bottom: solid 2px;
-	border-width: 2px;
 	padding: 10px;
 	left:10px;
 	top: 0px;
-	width: 70%;
-	min-width: 179px;
-	min-height: 250px;
+	width: 100%;
+	min-width: 161px;
+	min-height: 225px;
 	overflow:auto;
-	font-size:0;
 }
 .cards {
-
 	display: inline-block;
 	font-size:0;
 	border: none;
 	vertical-align:top;
-	width: 179px;
-	height: 250px;
+	width: 161px;
+	height: 225px;
 }
 .cards img{
-	max-width: 179px;
-	max-height: 250px;
+	max-width: 161px;
+	max-height: 225px;
 }
 
 #addHands{
 	position:relative;
 	display: block;
-	border-style: solid;
-	border-bottom: solid 2px;
-	border-width: 2px;
 	padding: 10px;
 	left:10px;
-	top: 10px;
-	width: 70%;
-	min-width:179px;
-	min-height: 250px;
+	top: 15px;
+	width: 100%;
+	min-width:161px;
+	min-height: 226px;
 	overflow: auto;
-	font-size:0;
+	text:0px;
 }
