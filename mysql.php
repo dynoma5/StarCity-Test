@@ -6,6 +6,7 @@ $q = intval($_GET['q']);
 $decks = mysqli_query($magic, "SELECT * FROM decks WHERE deck_id = $q") or die($magic."<br/><br/>".mysqli_error());
 
 $info = mysqli_fetch_array($decks);
+// MySQL Filters to separate card types
 
 $creature_filter = "SELECT * FROM decks_to_cards JOIN cards on decks_to_cards.card_id = cards.card_id WHERE deck_id = $q AND (card_type = 'Creature' OR card_type = 'Artifact Creature' OR card_type = 'Legendary Creature'
 OR card_type = 'Enchantment Creature' OR card_type = 'Legendary Enchantment Creature' OR card_type = 'Legendary Artifact Creature')";
@@ -17,14 +18,15 @@ $land_filter = "SELECT * FROM decks_to_cards JOIN cards on decks_to_cards.card_i
 $spell_filter = "SELECT * FROM decks_to_cards JOIN cards on decks_to_cards.card_id = cards.card_id WHERE deck_id = $q AND (card_type = 'Artifact' OR card_type = 'Enchantment' OR card_type = 'Instant' OR card_type = 'Legendary Artifact'
 OR card_type = 'Legendary Enchantment' OR card_type = 'Sorcery' OR card_type = 'Tribal Instant')";
 
+// Declaration of Variables
 $creature_count = 0;
 $planeswalker_count = 0;
 $land_count = 0;
 $spell_count = 0;
-$array = array();
+$array = array(); //used to populate the deck
 
 //For Creatures
-$counter_creature = mysqli_query($magic, $creature_filter )
+$counter_creature = mysqli_query($magic, $creature_filter)
 or die($magic."<br/><br/>".mysqli_error());
 
 while($row = mysqli_fetch_array($counter_creature)){
@@ -46,7 +48,6 @@ while($row = mysqli_fetch_array($counter_planeswalker)){
 		$array[] = $row['card_image'];
 	}
 }
-
 
 //Spells
 $counter_spell = mysqli_query($magic, $spell_filter)
@@ -70,8 +71,8 @@ while($row = mysqli_fetch_array($counter_land)){
 		$array[] = $row['card_image'];
 	}
 }
-//shuffle deck
 
+//shuffle deck after population is complete
 $shuffledDeck = array();
 $total = count($array)-1;
 $removedCard = $total;
@@ -82,5 +83,4 @@ for($i = 0; $i <= $total; $i++){
 	$array = array_values($array);
 	$removedCard = $removedCard - 1;
 }
-
 ?>

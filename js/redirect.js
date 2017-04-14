@@ -3,7 +3,7 @@ function showDeck(){
 	var decks = document.getElementById('decks').value;
 	
 	if (decks =="0"){
-		document.getElementById("deckList").innerHTML = "";
+		document.getElementById("container").innerHTML = "";
 		return;
 	}
 	else{
@@ -17,7 +17,7 @@ function showDeck(){
 		
 		xmlhttp.onreadystatechange = function(){
 			if(this.readyState == 4 && this.status == 200){
-				document.getElementById("deckList").innerHTML = this.responseText;
+				document.getElementById("container").innerHTML = this.responseText;
 			}
 		};
 		
@@ -28,7 +28,7 @@ function showDeck(){
 }
 
 function showHands(){
-	 var hands = document.getElementById('drawCards').value;
+	 var hands = document.getElementById('drawHand').value;
 		if (window.XMLHttpRequest){
 			xmlhttp = new XMLHttpRequest();
 		}
@@ -39,14 +39,14 @@ function showHands(){
 		
 		xmlhttp.onreadystatechange = function(){
 			if(this.readyState == 4 && this.status == 200){
-				document.getElementById("cardHands").innerHTML = this.responseText;
+				document.getElementById("handCards").innerHTML = this.responseText;
 			
 			}
 		};
 		
-	xmlhttp.open("GET", "draw.php?q="+hands,true);
+	xmlhttp.open("GET", "reset.php?q="+hands,true);
 	xmlhttp.send();		
-	$("#addHands").empty(); 
+	$("#newCards").empty(); 
 }
 
 function addHand(){
@@ -63,7 +63,7 @@ function addHand(){
 		
 		xmlhttp.onreadystatechange = function(){
 			if(this.readyState == 4 && this.status == 200){
-				document.getElementById("addHands").innerHTML = document.getElementById("addHands").innerHTML + this.responseText;
+				document.getElementById("newCards").innerHTML = document.getElementById("newCards").innerHTML + this.responseText;
 			}
 		};
 	xmlhttp.open("GET", "add.php?q="+list,true);
